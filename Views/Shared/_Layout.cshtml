@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <strong>Админ-панель</strong>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <span>@User.Identity.Name</span>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <button type="submit">Выйти</button>
+            </form>
+        }
+    </header>
+    @if (User.IsInRole("Admin"))
+    {
+        <nav>
+            <a asp-controller="Admin" asp-action="Index">Пользователи</a>
+            <a asp-controller="Admin" asp-action="Settings">Настройки</a>
+            <a asp-controller="Admin" asp-action="Reports">Отчёты</a>
+        </nav>
+    }
+    <main>@RenderBody()</main>
+</body>
+</html>

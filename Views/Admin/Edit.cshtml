@@ -1,0 +1,16 @@
+@model UserForm
+<h1>Редактирование пользователя</h1>
+<form asp-action="Edit" asp-route-id="@ViewBag.UserId" method="post">
+    <div asp-validation-summary="All" class="error"></div>
+    <p><label asp-for="UserName">Логин</label><input asp-for="UserName" /></p>
+    <p><label asp-for="Email">Email</label><input asp-for="Email" type="email" /></p>
+    <p>
+        <label asp-for="Role">Роль</label>
+        <select asp-for="Role">
+            <option value="User">Пользователь</option>
+            <option value="Admin">Администратор</option>
+        </select>
+    </p>
+    <button type="submit">Сохранить</button>
+    <a asp-action="Index">Отмена</a>
+</form>

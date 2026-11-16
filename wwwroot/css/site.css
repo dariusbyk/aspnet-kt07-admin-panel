@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
+header { display: flex; gap: 24px; align-items: center; margin-bottom: 20px; }
+nav { padding: 14px; background: #eee; }
+nav a { margin-right: 24px; }
+main { margin-top: 24px; }
+label { display: block; margin-bottom: 6px; }
+input, select { padding: 7px; width: 260px; box-sizing: border-box; }
+button { padding: 7px 12px; cursor: pointer; }
+table { border-collapse: collapse; }
+th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
+.inline { display: inline; margin-left: 12px; }
+.error { color: #a40000; }

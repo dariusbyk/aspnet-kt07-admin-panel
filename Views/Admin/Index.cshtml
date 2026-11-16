@@ -1,0 +1,24 @@
+@model List<UserRow>
+<h1>Пользователи</h1>
+@if (TempData["Error"] != null)
+{
+    <p class="error">@TempData["Error"]</p>
+}
+<p><a asp-action="Create">Добавить пользователя</a></p>
+<table>
+    <thead><tr><th>Логин</th><th>Email</th><th>Роль</th><th>Действия</th></tr></thead>
+    <tbody>
+    @foreach (UserRow user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td><td>@user.Email</td><td>@user.Role</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@user.Id">Редактировать</a>
+                <form asp-action="Delete" asp-route-id="@user.Id" method="post" class="inline">
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
